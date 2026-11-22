@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#10120f" />
+  <meta name="description" content="Afterglow — визуальный дневник, который сохраняет атмосферу дня." />
+  <title>afterglow — an archive of feeling</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="director.css" />
+  <link rel="stylesheet" href="studio.css" />
+  <link rel="stylesheet" href="polish.css" />
+  <link rel="stylesheet" href="arc.css" />
+  <link rel="stylesheet" href="v9.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" data-go="home" aria-label="Afterglow — главная">
+        <span class="brand-glyph" aria-hidden="true">✳</span><span>afterglow<span class="brand-dot">.</span></span>
+      </a>
+      <div class="header-caption">THE ART OF REMEMBERING<br /><span>01 — A PERSONAL ARCHIVE</span></div>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <button class="nav active" data-view="home">Обзор</button>
+        <button class="nav" data-view="create">Новый день</button>
+        <button class="nav" data-view="archive">Архив</button>
+        <button class="nav" data-view="about">Система</button>
+      </nav>
+      <button class="top-cta" data-go="create"><span class="top-cta-plus">＋</span><span>Записать момент</span><span>↗</span></button>
+    </header>
+    <main>
+      <section class="view active" id="home">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="overline"><span class="overline-dot"></span> НЕ ПРОСТО ДНЕВНИК. ЧУВСТВО В ФОРМЕ.</div>
+            <h1>У каждого дня<br />есть <em>своё</em><br /><span>послесвечение<span class="hero-asterisk">✳</span></span></h1>
+            <p class="hero-description">Память — это больше, чем фотографии. Сохрани свет, музыку и чувства дня в истории, которую захочется прожить снова.</p>
+            <div class="hero-actions"><button class="primary" data-go="create">Создать воспоминание <span class="arrow-round">↗</span></button><button class="v9-demo" type="button" data-v9-demo>▶ Попробовать пример</button><span class="hero-prompt">01 / НАЧНИ С ОДНОГО ДНЯ</span></div>
+            <div class="hero-aside">ТЕКСТ <span>✳</span> ФОТО <span>✳</span> МУЗЫКА <span>→</span> АТМОСФЕРА</div>
+          </div>
+          <div class="hero-visual">
+            <img class="hero-picture" src="assets/rainy-evening.jpg" alt="Дождливый вечерний город в золотом свете фонарей" />
+            <div class="hero-photo-overlay"></div>
+            <div class="hero-visual-top"><span>FRAME 001</span><span>THE MOMENTS WE KEEP</span></div>
+            <div class="hero-float">“Некоторые вечера<br />остаются с нами.”<span>— A MEMORY IN MOTION</span></div>
+            <div class="hero-visual-bottom"><span>19.11.2026</span><span class="soundline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>00:24 / ∞</span></div>
+          </div>
+          <div class="hero-side-text">FEEL IT / KEEP IT / RELIVE IT</div>
+        </div>
+        <div class="ticker" aria-hidden="true"><span>NOT WHAT HAPPENED</span><i>✳</i><span>HOW IT FELT</span><i>✳</i><span>THE THINGS WE ALMOST FORGOT</span><i>✳</i><span>NOT WHAT HAPPENED</span></div>
+        <div class="section-head">
+          <div><div class="eyebrow">001 / YOUR COLLECTION</div><h2>Моменты, <em>которые остались.</em></h2></div>
+          <button class="text-btn" data-go="archive">Смотреть архив <span>↗</span></button>
+        </div>
+        <div id="recent" class="cards"></div>
+        <div class="manifesto-strip"><div class="manifesto-icon">✳</div><div><p>Фотографии показывают, <em>что было.</em><br />Afterglow помогает вспомнить, <em>как это ощущалось.</em></p><span>THE PHILOSOPHY BEHIND AFTERGLOW</span></div><button data-go="about" aria-label="Узнать о визуальной системе">↗</button></div>
+      </section>
+
+      <section class="view" id="create">
+        <div class="page-heading create-heading"><div class="eyebrow">002 / A NEW MEMORY</div><div class="heading-row"><h1>Расскажи о <em>моменте.</em></h1><p>Даже обыкновенный день может стать произведением искусства. Начни с деталей, которые запомнились.</p></div></div>
+        <form id="memoryForm">
+          <div class="analyzer-status"><strong id="aiStatus">◈ Локальный арт-директор</strong><span>Система сама выбирает художественное направление. Gemini работает через защищённый сервер, если настроен ключ. Результат покажет, какой анализ использован.</span></div>
+          <div class="form-grid">
+            <div class="form-left">
+              <div class="form-section-id">01 — THE STORY <span>ГЛАВНОЕ</span></div>
+              <label class="field-label" for="memoryDate">КОГДА ЭТО БЫЛО</label><input type="date" id="memoryDate" required />
+              <label class="field-label" for="memoryText">РАССКАЖИ, КАК ЭТО ОЩУЩАЛОСЬ</label>
+              <textarea id="memoryText" placeholder="Было холодно, асфальт блестел под фонарями. Мы пили горячий какао и говорили обо всём на свете..." minlength="15" required></textarea>
+              <div class="preset-row"><span>ПРОВЕРЬ 3 АТМОСФЕРЫ:</span><button type="button" class="preset-btn" data-preset="warm">01 / Осенний свет</button><button type="button" class="preset-btn" data-preset="nocturne">02 / Тихая ночь</button><button type="button" class="preset-btn" data-preset="construct">03 / Дедлайн</button></div>
+              <div class="hint">Подсказка: свет, погода, запахи, музыка, люди. В этих деталях живёт атмосфера.</div>
+              <div class="form-section-id second">02 — THE SOUND <span>ЗВУК</span></div>
+              <label class="field-label" for="songTitle">ПЕСНЯ, КОТОРАЯ БЫЛА РЯДОМ</label><input id="songTitle" placeholder="Начни вводить название или исполнителя" autocomplete="off" /><div class="hint">Онлайн-поиск требует интернета; при неполадках сервиса используй загрузку MP3/WAV ниже. Каталог предоставляет только официальные короткие превью. Их начало выбирает музыкальный сервис, не Afterglow.</div>
+              <details class="song-extra" open><summary>Добавить свою музыку (надёжный вариант) или ссылку</summary><label class="field-label" for="songUrl">ССЫЛКА НА МУЗЫКУ</label><input id="songUrl" type="url" placeholder="https://open.spotify.com/..." />
+              <div class="divider"><span>ИЛИ ЗАГРУЗИ АУДИОФАЙЛ</span></div><input id="songFile" type="file" accept="audio/*" />
+              <div class="hint">Для гарантированного звука загрузи аудиофайл: Afterglow автоматически начинает с самого энергичного участка (это не обязательно самый популярный момент). Превью из поиска iTunes также может играть в фильме, если загрузка разрешена браузером. Ссылки YouTube и Spotify открываются в отдельном плеере и не входят в видео.</div></details>
+            </div>
+            <div class="form-right">
+              <div class="form-section-id">03 — THE VISUALS <span>КАДРЫ</span></div>
+              <label class="field-label">ФОТОГРАФИИ ЭТОГО ДНЯ</label>
+              <label class="dropzone" id="dropzone" for="photos"><span class="upload-icon">↗</span><strong>Добавить фотографии</strong><small>Нажми или перетащи сюда свои кадры · JPG / PNG / WEBP</small><input id="photos" type="file" accept="image/*" multiple hidden /></label>
+              <div id="photoPreviews" class="previews"></div>
+              <div class="preview-art"><div class="preview-art-label">A LIVE GLIMPSE / 001</div><div class="preview-sun">✳</div><div><div class="preview-art-small">YOUR MEMORY IS WAITING</div><div class="preview-art-big">It will feel<br /><em>like you.</em></div></div><div class="preview-art-bottom">TEXT + IMAGE + SOUND <span>↗</span></div></div>
+              <div class="tip"><span>↳</span><div><strong>Что делает Afterglow?</strong><p>Каждая фотография становится отдельной сценой, а эмоциональные оттенки текста управляют ритмом и цветом монтажа.</p></div></div>
+            </div>
+          </div>
+          <div class="form-footer"><div><span class="footer-num">04 / READY TO REMEMBER</span><span>Записи хранятся локально. После создания их можно скачать и перенести на другой компьютер.</span></div><button class="primary" type="submit" id="generateBtn">Создать воспоминание <span class="arrow-round">↗</span></button></div>
+        </form>
+      </section>
+
+      <section class="view" id="archive">
+        <div class="page-heading"><div class="eyebrow">003 / THE ARCHIVE</div><div class="heading-row"><h1>Коллекция <em>чувств.</em></h1><p>Нет двух одинаковых дней. Нет двух одинаковых историй. Здесь живут те, которые ты решил сохранить.</p></div></div>
+        <div class="archive-intro"><span>ALL SAVED MOMENTS</span><span id="archiveCount">00 / ENTRIES</span></div>
+        <div id="archiveCards" class="cards archive-cards"></div>
+      </section>
+
+      <section class="view" id="detail">
+        <div class="detail-heading"><button class="text-btn back" data-go="archive">← Вернуться в архив</button><span>AFTERGLOW / A LIVING MEMORY</span></div>
+        <div id="detailContent"></div>
+      </section>
+
+      <section class="view" id="about">
+        <div class="page-heading"><div class="eyebrow">004 / THE ART DIRECTION</div><div class="heading-row"><h1>Чувства → <em>форма.</em></h1><p>Никакой случайной красоты. У каждого оттенка, движения и кадра есть причина.</p></div></div>
+        <div class="system-hero"><span>OUR PRINCIPLE Nº 01</span><p>Каждому дню —<br />свой ритм.<br /><em>Всем дням — один язык.</em></p><div class="system-symbol">✳</div></div>
+        <div class="about-grid">
+          <article><div class="about-num">01 / THE WORDS</div><h3>Текст → эмоциональный профиль</h3><p>Локальный арт-директор измеряет несколько осей сразу: тепло, ностальгию, напряжение, энергию и спокойствие. С серверным ключом можно подключить Gemini для более точного анализа контекста и отбора ключевых моментов.</p></article>
+          <article><div class="about-num">02 / THE COLORS</div><h3>Фото → цвет и свет</h3><p>Система извлекает средние цвета из загруженных фотографий, а каждый фрагмент истории получает собственный эмоциональный оттенок: в одном фильме цвет может меняться от радости до грусти.</p></article>
+          <article><div class="about-num">03 / THE RHYTHM</div><h3>Музыка → ритм монтажа</h3><p>Из загруженного аудиофайла измеряются энергия, контрасты и частота резких изменений громкости. Темп кадров дополнительно меняется по эмоциональной дуге рассказа. Если дана только ссылка, используется ограниченная подсказка по названию песни.</p></article>
+          <article><div class="about-num">04 / THE SIGNATURE</div><h3>Единый почерк дневника</h3><p>Постоянные элементы — дата, надпись, индексы кадров, полоса прогресса и монтажная структура. Меняются раскладка фотографий (контакт-лист, одиночный кадр, коллаж), фактура, типографика, ритм и цвета.</p></article>
+        </div>
+        <div class="mood-section"><div class="section-head"><div><div class="eyebrow">VISUAL GRAMMAR</div><h2>Один почерк. <em>Разные ощущения.</em></h2></div></div><div class="mood-grid">
+          <div class="mood-card warm-art"><div class="mood-number">01 / ANALOGUE</div><div class="mood-graphic">✳</div><h3>Тепло</h3><p>Плёночный свет, зерно и плавность. Вдохновение: импрессионизм и аналоговая фотография.</p></div>
+          <div class="mood-card calm-art"><div class="mood-number">02 / NOCTURNE</div><div class="mood-graphic">◯</div><h3>Тишина</h3><p>Воздух, тень, длинные паузы. Вдохновение: минималистичная кинематография.</p></div>
+          <div class="mood-card tense-art"><div class="mood-number">03 / CONSTRUCT</div><div class="mood-graphic">▰</div><h3>Напряжение</h3><p>Геометрия, контраст, резкий ритм. Вдохновение: конструктивизм и абстракция.</p></div>
+        </div></div>
+        <p class="method-note">Без настроенного серверного API проект работает автономно с объяснимым локальным анализом; при наличии ключа может подключать Gemini. Из аудио измеряются динамика и пульсация сигнала — это не точное распознавание BPM или эмоций музыки. Художественный профиль не является психологической диагностикой.</p>
+      </section>
+    </main>
+    <footer class="site-footer"><span><span class="footer-mark">✳</span> AFTERGLOW — AN ARCHIVE OF FEELING</span><span>MADE FOR THE DAYS WE DON'T WANT TO LOSE.</span><span id="today"></span></footer>
+  </div>
+  <div class="v9-version-mark">AFTERGLOW / VERSION 09</div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="director.js"></script>
+  <script src="arc.js"></script>
+  <script src="cinema.js"></script>
+  <script src="app.js"></script>
+  <script src="extras.js"></script>
+  <script src="studio.js"></script>
+  <script src="mood.js"></script>
+  <script src="songsearch.js"></script>
+  <script src="aura.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

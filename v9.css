@@ -1,0 +1,35 @@
+/* Afterglow v9 — film canvas and fluid montage */
+.film.film-v9{position:relative;isolation:isolate;overflow:hidden;width:100%;height:auto!important;min-height:0!important;aspect-ratio:16/9;max-height:none!important;margin:0 auto;border:1px solid rgba(210,232,188,.20);background:#101a17;box-shadow:0 30px 100px #0006}
+.film-v9 #filmCanvas{display:block;width:100%;height:100%;aspect-ratio:inherit;object-fit:fill;position:absolute;inset:0;z-index:1}
+.film-v9:after{z-index:2;inset:18px;opacity:.35}
+.film-v9[data-v9-format="9:16"]{width:min(100%,460px);aspect-ratio:9/16}
+.film-v9[data-v9-format="1:1"]{width:min(100%,850px);aspect-ratio:1}
+.film-v9 .film-bottom{position:absolute;z-index:6;left:7.5%;right:7.5%;bottom:5%;padding:13px 16px 10px;background:linear-gradient(90deg,#09110fe3,#142118cd);border:1px solid #e7f1d12b;backdrop-filter:blur(12px)}
+.film-v9 .film-progress{gap:4px}.film-v9 .film-segment{height:5px;min-width:3px;background:rgba(246,241,225,.21)}
+.film-v9 .film-segment span{position:static;display:block;animation:none!important;width:0;height:100%;background:var(--scene-accent,#dccb9d);transition:none}
+.film-v9 .film-segment.done span{width:100%!important;background:#f0eed5a3}
+.film-v9 .film-segment:not(.current):not(.done) span{display:block}
+.film-v9 .film-controls{margin-top:10px;gap:8px;flex-wrap:wrap}
+.film-v9 .film-controls button{width:33px;height:33px;font-size:16px}
+.film-v9 .film-audio-tools{z-index:9;right:7%;top:13%;max-width:86%}
+.film-v9 .film-audio-tools button{font-size:10px;padding:9px 11px}
+.film-v9 .film-music-dock{z-index:15}
+.film-v9[data-v9-format="9:16"] .film-audio-tools{top:8%;right:9%;left:9%}
+.film-v9[data-v9-format="9:16"] .film-bottom{left:7%;right:7%;bottom:3%}
+.film-v9[data-v9-format="9:16"] .film-song,.film-v9[data-v9-format="1:1"] .film-song{display:none}
+.film-v9[data-v9-format="9:16"] .film-controls .film-link{font-size:10px}
+.emotional-steps{grid-template-columns:repeat(auto-fit,minmax(132px,1fr))}.emotional-step{min-height:112px}
+.studio-scene-grid{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+.studio-scene{transition:transform .2s,border-color .2s}.studio-scene:hover{border-color:#aeb9a04e}
+.studio-scene-image{height:170px}
+.studio-reorder{display:flex;gap:5px}.studio-reorder button{flex:1;background:#293a30;border:1px solid #bdc9ae55;color:#e6eddb;font:10px Arial,sans-serif;padding:9px 4px;cursor:pointer}.studio-reorder button:hover{background:#425a48}
+.studio-settings-grid{display:grid;grid-template-columns:minmax(230px,1fr) 200px 200px;align-items:end;gap:19px;margin-top:28px}
+.studio-speed{margin:0}
+.studio-format-label{font:10px/1.6 Arial,sans-serif;letter-spacing:1.1px;color:#c9d4c2}.studio-format-label select{margin-top:10px;display:block;background:#1d2922;color:#eef1e4;border:1px solid #b2c39b67;padding:12px;width:100%;font:12px Arial,sans-serif}
+.v9-demo{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:transparent;border:1px solid #bdcfaa80;color:#e1edd1;padding:14px 17px;font:11px Arial,sans-serif;cursor:pointer}.v9-demo:hover{background:#2c3a2c}
+.hero-actions .v9-demo{margin-left:12px}.v9-demo-inline{margin-top:10px}
+.v9-version-mark{position:fixed;bottom:12px;left:12px;z-index:18;font:700 9px Arial,sans-serif;letter-spacing:1.8px;color:#e9f3dd9e;pointer-events:none}
+@media(max-width:1100px){.studio-settings-grid{grid-template-columns:1fr 1fr}.studio-speed{grid-column:1/-1}}
+@media(max-width:720px){.emotional-steps{display:flex;grid-template-columns:none}.emotional-step{flex:0 0 42%}.film-v9 .film-bottom{left:5%;right:5%;padding:9px 9px 7px}.film-v9:after{inset:9px}.film-v9 .film-audio-tools{top:10%;right:5%;max-width:93%}.film-v9 .film-controls #filmCounter{font-size:9px;margin-left:4px}.film-v9 .film-controls button{width:29px;height:29px}.hero-actions .v9-demo{margin:10px 0 0}.studio-scene-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.studio-scene-image{height:140px}}
+@media(max-width:520px){.studio-settings-grid{grid-template-columns:1fr}.studio-speed{grid-column:auto}.studio-scene-grid{grid-template-columns:1fr}.studio-scene-image{height:220px}.emotional-step{flex:0 0 64%}.film-v9 .film-audio-tools button{padding:6px 8px;font-size:9px}.film-v9 .film-bottom{bottom:3%}.film-v9 .film-controls .film-link{display:none}.film-v9[data-v9-format="9:16"]{width:100%}}
+@media(prefers-reduced-motion:reduce){.studio-scene,.v9-demo{transition:none}}
